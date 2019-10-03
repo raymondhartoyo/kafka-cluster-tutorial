@@ -1,0 +1,1 @@
+bin/kafka-topics.sh --topic learn-kafka-topic --create --zookeeper zookeeper-1 --partitions 3 --replication-factor 3

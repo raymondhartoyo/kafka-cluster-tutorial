@@ -1,4 +1,4 @@
-docker container run -it --name zookeeper-1 -p :2181 ubuntu /bin/bash
+docker container run -it --name zookeeper-2 -p :2181 --network tutorial-kafka ubuntu /bin/bash
 
 apt-get update && apt-get install -y wget nano openjdk-8-jdk
 
@@ -24,6 +24,6 @@ server.2=zookeeper-2:2888:3888
 server.3=zookeeper-3:2888:3888
 " > config/zookeeper.properties
 
-echo "1" > /var/zookeeper/myid
+echo "2" > /var/zookeeper/myid
 
 bin/zookeeper-server-start.sh config/zookeeper.properties

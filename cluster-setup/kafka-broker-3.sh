@@ -1,4 +1,4 @@
-docker container run -it --name kafka-broker-1 -p :9092 ubuntu /bin/bash
+docker container run -it --name kafka-broker-3 -p :9092 --network tutorial-kafka ubuntu /bin/bash
 
 apt-get update && apt-get install -y wget nano openjdk-8-jdk
 
@@ -13,12 +13,12 @@ cd /opt/kafka
 mkdir /var/kafka-logs
 
 echo "
-broker.id=0
+broker.id=2
 log.dirs=/var/kafka-logs
 log.retention.hours=168
 zookeeper.connect=zookeeper-1:2181,zookeeper-2:2181,zookeeper-3:2181
 
-advertised.listeners=PLAINTEXT://kafka-broker-1:9092
+advertised.listeners=PLAINTEXT://kafka-broker-3:9092
 " > config/server.properties
 
 bin/kafka-server-start.sh config/server.properties
